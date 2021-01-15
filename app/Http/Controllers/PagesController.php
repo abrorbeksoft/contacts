@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class PagesController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+    }
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function register()
+    {
+        return view('register');
+    }
+
+    public function doRegister()
+    {
+
+    }
+
+    public function doLogin()
+    {
+
+    }
+}
