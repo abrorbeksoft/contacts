@@ -27,9 +27,11 @@ class AuthController extends Controller
         if (Auth::attempt($arry,$request->remember))
         {
             $user=User::where('username',$request->username)->first();
-            return view('home')->with('user',$user);
+            return view('contacts',[
+                'user'=>$user
+            ]);
         }
-
+        return redirect()->back();
     }
 
     public function register(Request $request)
@@ -50,10 +52,9 @@ class AuthController extends Controller
         $user->save();
         Auth::login($user);
 
-        return view('home',[
-            'user'=>$user,
+        return view('contacts',[
+            'user'=>$user
         ]);
-
     }
 
     public function logout()

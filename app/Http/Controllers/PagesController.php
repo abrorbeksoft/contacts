@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->only([]);
+        $this->middleware('auth')->only(['contacts']);
     }
 
     public function index()
@@ -38,6 +39,9 @@ class PagesController extends Controller
 
     public function contacts()
     {
-        return view('contacts');
+
+        return view('contacts',[
+            'user'=>Auth::user()
+        ]);
     }
 }
