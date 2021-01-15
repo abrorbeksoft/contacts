@@ -8,7 +8,12 @@ class PagesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->only([]);
+    }
+
+    public function index()
+    {
+        return view('home');
     }
 
     public function login()
@@ -29,5 +34,10 @@ class PagesController extends Controller
     public function doLogin()
     {
 
+    }
+
+    public function contacts()
+    {
+        return view('contacts');
     }
 }

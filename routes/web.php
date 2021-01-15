@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +19,18 @@ use App\Http\Controllers\PagesController;
 //    return view('app');
 //})->where('any','.*');
 
-//Route::get('/',[])
+Route::get('/',[PagesController::class,'index'])->name('index');
+
+Route::get('/login',[PagesController::class,'login'])->name('login');
+Route::get('/register',[PagesController::class,'register'])->name('register');
+
+Route::post('/login',[AuthController::class,'login'])->name('do.login');
+Route::post('/register',[AuthController::class,'register'])->name('do.register');
+
+Route::middleware('auth')->group(function (){
+    Route::get('/contacts',[PagesController::class,'contacts'])->name('contacts');
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+});
+
+
+
