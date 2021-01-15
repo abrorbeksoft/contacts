@@ -15,7 +15,7 @@ class CreateEmailsTable extends Migration
     {
         Schema::create('emails', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('text')->nullable();
             $table->unsignedBigInteger('contact_id');
             $table->foreign('contact_id')->references('id')->on('contacts');
