@@ -9,6 +9,8 @@ class Number extends Model
 {
     use HasFactory;
 
+    protected $guarded=[];
+
     public function contact()
     {
         return $this->belongsTo(Contact::class);

@@ -7,9 +7,9 @@
 @section('content')
     <div class="container">
         <a class="btn btn-primary my-2" href="{{ route('addcontact') }}">Add new!</a>
-            @foreach($user->contacts as $contact)
+            @foreach($contacts as $contact)
                 <div class="row border shadow rounded-2 py-2 my-3">
-                    <div class="col-md-1">
+                    <div class="col-md-1  col-4">
                         <img class="w-100  rounded-circle" src="{{ asset('storage') }}/{{ $contact->image }}" alt="yuklanmadi">
                     </div>
                     <div class="col-md-10">
@@ -33,7 +33,6 @@
                     </div>
                 </div>
             @endforeach
-        Lorem ipsum dolor sit amet.
 
     </div>
 @endsection
