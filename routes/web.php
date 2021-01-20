@@ -30,6 +30,7 @@ Route::post('/register',[AuthController::class,'register'])->name('do.register')
 Route::middleware('auth')->group(function (){
     Route::get('/contacts',[PagesController::class,'contacts'])->name('contacts');
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+    Route::get('/addcontact',[PagesController::class,'addcontact'])->name('addcontact');
 });
 
 
