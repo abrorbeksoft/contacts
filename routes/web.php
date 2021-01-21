@@ -32,6 +32,13 @@ Route::middleware('auth')->group(function (){
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
     Route::get('/addcontact',[PagesController::class,'addcontact'])->name('addcontact');
     Route::post('/addcontact',[PagesController::class,'storeContact'])->name('add.contact');
+
+
+    Route::get('updatecontact',[PagesController::class,"show"])->name('showContact');
+
+    Route::put('updatecontact',[PagesController::class,'updateContact'])->name('updateContact');
+    Route::delete('deletecontact',[PagesController::class,'deleteContact'])->name('deleteContact');
+
 });
 
 

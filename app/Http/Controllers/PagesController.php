@@ -28,13 +28,19 @@ class PagesController extends Controller
         return view('register');
     }
 
-    public function doRegister()
-    {
+    public function show(Request $request){
+
+        $contact=Contact::find($request->id);
+
+        return view('contact_edit',[
+            'contact'=>$contact
+        ]);
+    }
+    public function updateContact(Request $request,$id){
 
     }
 
-    public function doLogin()
-    {
+    public function deleteContact(Request $request){
 
     }
 
