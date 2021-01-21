@@ -10,7 +10,7 @@
             {{ $error }}
         </div>
     @endisset
-    <div class=" container-fluid " >
+    <div class="container-fluid" >
         <div class="col-md-8 mx-auto">
             <form action="{{ route('add.contact') }}" method="post" enctype="multipart/form-data" >
                 @csrf
